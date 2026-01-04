@@ -117,6 +117,9 @@ Backend: http://localhost:8888
 ```bash
 docker-compose down
 ```
-
+License
+```bash
+This project is licensed under the MIT License.
+```
 
 
