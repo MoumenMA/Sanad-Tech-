@@ -35,6 +35,8 @@ This project includes:
 
 ## Project Structure
 
+```bash
+
 SANADTECH_TEST/
 ├─ frontend/ # React frontend
 │ ├─ Dockerfile
@@ -47,7 +49,7 @@ SANADTECH_TEST/
 │ └─ app.js
 ├─ docker-compose.yml
 └─ README.md
-
+```
 ---
 
 ## Requirements
