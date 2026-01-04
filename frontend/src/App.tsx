@@ -51,18 +51,18 @@ function App() {
     }
   };
 
-  // Fetch users when letter changes or reset search
+  
   useEffect(() => {
     setPage(1);
     fetchUsers(true);
   }, [letter]);
 
-  // Fetch more users when page changes
+ 
   useEffect(() => {
     if (page > 1) fetchUsers();
   }, [page]);
 
-  // Filter all loaded users first, then slice
+  
   const filteredUsers = users
     .filter((u) => u.toLowerCase().includes(searchQuery.toLowerCase()))
     .slice(0, MAX_RENDER);
@@ -72,7 +72,6 @@ function App() {
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-gray-800 mb-6">Users</h2>
 
-        {/* Search Bar */}
         <div className="mb-6 relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
           <input
@@ -92,7 +91,7 @@ function App() {
           )}
         </div>
 
-        {/* Alphabet Filter */}
+      
         <div className="mb-6 bg-white p-4 rounded-lg shadow-sm">
           <div className="flex flex-wrap gap-2">
             {alphabet.map((l) => (
@@ -103,7 +102,7 @@ function App() {
                   setUsers([]);
                   setPage(1);
                   setLetter(l);
-                  setSearchQuery(""); // reset search when filtering by letter
+                  setSearchQuery(""); 
                 }}
                 className={`px-3 py-2 rounded font-medium transition-all ${
                   letter === l
@@ -134,7 +133,7 @@ function App() {
           </div>
         </div>
 
-        {/* Error Message */}
+    
         {error && (
           <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4 flex items-center gap-2 text-red-800">
             <AlertCircle className="w-5 h-5" />
@@ -142,7 +141,7 @@ function App() {
           </div>
         )}
 
-        {/* Users List */}
+ 
         <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
           {filteredUsers.length > 0 ? (
             <ul className="space-y-2">
@@ -164,7 +163,7 @@ function App() {
           )}
         </div>
 
-        {/* Loading Indicator */}
+      
         {loading && (
           <div className="flex items-center justify-center gap-2 text-blue-600 mb-6">
             <Loader2 className="w-5 h-5 animate-spin" />
@@ -172,7 +171,7 @@ function App() {
           </div>
         )}
 
-        {/* Load More Button */}
+ 
         {!loading && filteredUsers.length > 0 && users.length >= LIMIT && (
           <button
             onClick={() => setPage((p) => p + 1)}

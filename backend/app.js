@@ -36,7 +36,7 @@ app.get("/display", (req, res) => {
       const username = line.trim();
       if (!username) continue;
 
-      // Alphabet filter
+
       if (letter && !username.startsWith(letter)) continue;
 
       if (matchedCount >= start && matchedCount < end) {
@@ -45,7 +45,7 @@ app.get("/display", (req, res) => {
 
       matchedCount++;
 
-      // Stop early when page is filled
+ 
       if (matchedCount >= end) {
         stream.destroy();
         break;
